@@ -6,6 +6,8 @@ vector<int> QuickSort::sort(vector<int> list) {
   int len = list.size();
   int low=0;
   int high=len-1;
+  if(len == 1)
+    return list;
   quicksrt(list,low,high);
   return list;
 }
