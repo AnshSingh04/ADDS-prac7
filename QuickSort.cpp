@@ -4,6 +4,8 @@ using namespace std;
 
 vector<int> QuickSort::sort(vector<int> list) {
   int len = list.size();
+  if(len == 1)
+    return list;
   int low=0;
   int high=len-1;
   quicksrt(list,low,high);
