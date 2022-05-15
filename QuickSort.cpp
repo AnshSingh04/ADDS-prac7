@@ -6,30 +6,29 @@ vector<int> QuickSort::sort(vector<int> list) {
   int len = list.size();
   int low=0;
   int high=len-1;
-  if(len == 1)
+  return quicksrt(list,low,high);
+}
+
+vector<int> QuickSort::quicksrt(vector<int>list, int low, int high) {
+    int pivot;
+    if (low <= high){
+      pivot=list.at(high);
+      if(high - low >= 2){
+        pivot = list.at(low+2);
+        swap(list.at(high),list.at(low+2));
+      }
+      int i = (low - 1);
+      for (int j = low; j <= high - 1; j++) {
+          if (list.at(j) < pivot) {
+                i++;
+                swap(list.at(j),list.at(i));
+            }
+        }
+        swap(list.at(high),list.at(i+1));
+        list = quicksrt(list,low, i);
+        list = quicksrt(list,i+2,high);
+    }
     return list;
-  quicksrt(list,low,high);
-  return list;
-}
 
-void QuickSort::quicksrt(vector<int>&list, int low, int high) {
-  if (low < high) {
-    int i = partition(list, low, high);
-    quicksrt(list, low, i-1);
-    quicksrt(list, i+1, high);
-  }
-}
-
-int QuickSort::partition(vector<int>&list, int low, int high) {
-  int pivot = high;
-  int j = low;
-	for(int i=low;i<high;++i){
-		if(list.at(i)<list.at(pivot)){
-			swap(list.at(i),list.at(j));
-			++j;
-		}
-	}
-	swap(list.at(j),list.at(pivot));
-	return j;
 }
 
