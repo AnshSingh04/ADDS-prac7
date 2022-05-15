@@ -5,9 +5,9 @@ using namespace std;
 bool RecursiveBinarySearch::search(vector<int> list, int num) {
     int result = binsearch(list, num, 0, list.size()-1);
     if(result > 0)
-        return 1;
+        return true;
     else
-        return 0;
+        return false;
 }
 
 int RecursiveBinarySearch::binsearch(vector<int>&list, int num, int low, int high)

@@ -6,8 +6,19 @@
 #include <vector>
 #include <algorithm>
 int main() {
-    vector<int> vec1 = { 43, 5, 123, 94, 359, -23, 2, -1 };
+    vector<int> list; int i=0;
+    while(cin>>i) {
+        list.push_back(i);
+    }
     RecursiveBinarySearch s;
-    bool b = s.search(vec1,99);
-    cout<<b;
+    QuickSort q;
+    BubbleSort b;
+    list = q.sort(list);
+    bool bol = s.search(list,1);
+    if(bol == 1)
+        cout<<"true ";
+    else
+        cout<<"false ";
+    for (auto i: list)
+        cout << i << ' ';
 }

@@ -20,11 +20,9 @@ void QuickSort::quicksrt(vector<int>&list, int low, int high) {
 
 int QuickSort::partition(vector<int>&list, int low, int high) {
   int pivot = high;
-  int temp=0;
-  temp=list.at(2);
-  list.at(2)=high;
-  list.at(high)=temp;
-	int j = low;
+  int j = low;
+  if(list.size()>=3)
+    swap(list.at(2),list.at(high));
 	for(int i=low;i<high;++i){
 		if(list.at(i)<list.at(pivot)){
 			swap(list.at(i),list.at(j));
