@@ -3,6 +3,12 @@
 using namespace std;
 
 bool RecursiveBinarySearch::search(vector<int> list, int num) {
+    if(list.size() == 1) {
+        if(list.at(0) == 1)
+            return true;
+        else
+            return false;
+    }
     int result = binsearch(list, num, 0, list.size()-1);
     if(result > 0)
         return true;
